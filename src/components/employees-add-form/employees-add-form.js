@@ -79,7 +79,7 @@ class EmployeesAddForm extends Component {
             <div className="app-add-form">
                 <h3>Добавьте нового сотрудника</h3>
                 <form className="add-form d-flex" onSubmit={this.submitHandler}>
-                    <div>
+                    <div className="add-form-input-wrapper">
                         <input
                             onChange={this.onValueChange}
                             type="text"
@@ -90,7 +90,7 @@ class EmployeesAddForm extends Component {
                         />
                         {!this.state.errorName && <p className="app-add-form-error">{this.state.errorTextName}</p>}
                     </div>
-                    <div>
+                    <div className="add-form-input-wrapper">
                         <input
                             onChange={this.onValueChange}
                             type="text"

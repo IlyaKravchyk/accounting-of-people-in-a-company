@@ -11,7 +11,7 @@
     line-height: 35px;
     font-size: 20px;
     cursor: pointer;
-    min-width: 550px;
+    width: 100%;
 }
 
 .list-group-item input {
@@ -58,7 +58,7 @@
 .list-group-item.increase .list-group-item-label, .list-group-item.increase .list-group-item-input {
     color: #e09f3e;
 }
-  
+
 .list-group-item.increase .btn-star {
     color: #aeaeae;
 }

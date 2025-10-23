@@ -9,11 +9,16 @@
 
 .add-form {
     margin-top: 20px;
+    column-gap: 25px;
+    
+}
+
+.add-form-input-wrapper {
+    width: 100%;
 }
 
 .add-form input {
-    width: 350px;
-    margin-right: 20px;
+    width: 100%;
 }
 
 .app-add-form-error {
