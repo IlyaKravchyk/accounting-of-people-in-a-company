@@ -3,6 +3,7 @@ import EmployeesListItem from "../employees-list-item/employees-list-item";
 import "./employees-list.css";
 
 const EmployeesList = ({data, onToggleIncrease, onToggleRise, onDeletedPeople}) => {
+    const isEmpty = data.length <= 0;
     const renderItems = () =>
         data.map((item) => (
             <EmployeesListItem
@@ -13,8 +14,13 @@ const EmployeesList = ({data, onToggleIncrease, onToggleRise, onDeletedPeople}) 
                 onDeletedPeople={() => onDeletedPeople(item.id)}
             />
         ));
-
-    return <ul className="app-list list-group">{renderItems()}</ul>;
+    console.log(isEmpty);
+    return (
+        <ul className={`${isEmpty ? "app-list-empty" : "app-list list-group"}`}>
+            {!isEmpty && renderItems()}
+            {isEmpty && <div>Добавьте сотрудников</div>}
+        </ul>
+    );
 };
 
 export default EmployeesList;
