@@ -6,12 +6,13 @@ import EmployeesAddForm from "../employees-add-form/employees-add-form";
 
 import "./app.css";
 import {Component} from "react";
+import {getLocalStorage, setLocalStorage} from "../../helpers/localStorage";
 
 class App extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
+        this.state = getLocalStorage() || {
             data: [
                 {name: "John C.", salary: 800, increase: false, rise: true, id: 1},
                 {name: "Alex M.", salary: 3000, increase: true, rise: false, id: 2},
@@ -47,35 +48,47 @@ class App extends Component {
     };
 
     onAddPeople = (newPeople) => {
-        this.setState(({data}) => ({data: [...data, newPeople]}));
+        this.setState(
+            ({data}) => ({data: [...data, newPeople]}),
+            () => setLocalStorage(this.state),
+        );
     };
 
     onToggleIncrease = (id) => {
-        this.setState(({data}) => ({
-            data: data.map((item) => {
-                if (item.id === id) {
-                    return {...item, increase: !item.increase};
-                }
-                return item;
+        this.setState(
+            ({data}) => ({
+                data: data.map((item) => {
+                    if (item.id === id) {
+                        return {...item, increase: !item.increase};
+                    }
+                    return item;
+                }),
             }),
-        }));
+            () => setLocalStorage(this.state),
+        );
     };
 
     onToggleRise = (id) => {
-        this.setState(({data}) => ({
-            data: data.map((item) => {
-                if (item.id === id) {
-                    return {...item, rise: !item.rise};
-                }
-                return item;
+        this.setState(
+            ({data}) => ({
+                data: data.map((item) => {
+                    if (item.id === id) {
+                        return {...item, rise: !item.rise};
+                    }
+                    return item;
+                }),
             }),
-        }));
+            () => setLocalStorage(this.state),
+        );
     };
 
     onDeletedPeople = (id) => {
-        this.setState(({data}) => ({
-            data: data.filter((item) => item.id !== id),
-        }));
+        this.setState(
+            ({data}) => ({
+                data: data.filter((item) => item.id !== id),
+            }),
+            () => setLocalStorage(this.state),
+        );
     };
 
     render() {
