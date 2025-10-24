@@ -6,9 +6,7 @@ class EmployeesListItem extends Component {
         const {name, salary, increase, rise, onToggleIncrease, onToggleRise, onDeletedPeople} = this.props;
 
         return (
-            <li
-                className={`list-group-item d-flex justify-content-between ${rise && "like"} ${increase && "increase"}`}
-            >
+            <li className={`list-group-item  ${rise && "like"} ${increase && "increase"}`}>
                 <span className="list-group-item-label" onClick={onToggleRise}>
                     {name}
                 </span>

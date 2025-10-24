@@ -84,7 +84,7 @@ class EmployeesAddForm extends Component {
                             onChange={this.onValueChange}
                             type="text"
                             className="form-control new-post-label"
-                            placeholder="Как его зовут?"
+                            placeholder="Имя?"
                             name="name"
                             value={name}
                         />
